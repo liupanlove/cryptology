@@ -29,15 +29,19 @@ int main()
 	
 	unsigned int message[20];
 	
-	for(int i = 0; i < 16; ++i)
-	{
-		message[i] = 0x61626364;
-	}
+	message[0] = 0xfbe5d5c1;       
+	message[1] = 0x6f512604;
+	message[2] = 0x23d4b097;
+	message[3] = 0x18473206;
+	message[4] = 0x7e28164f;
+	message[5] = 0x9a19b787;
+	message[6] = 0xa981334e;
+	message[7] = 0x4deb60fa;
 	
 	
 	//TIME_TICK_START
 	cout << "haipa" << endl;
-	unsigned int * filled_message = sm3.fill(message, 16 * 32);
+	unsigned int * filled_message = sm3.fill(message, 10);
 	
 	cout << "haipa" << endl;
 	sm3.print_hex(filled_message, sm3.filled_len);
@@ -51,6 +55,8 @@ int main()
 	
 	
 	sm3.calculate_sm3(message1);
+	
+	sm3.print_hex(sm3.V, 8);
 	
 	///TIME_TICK_END
 	//TIME_TICK_PRINT(END);

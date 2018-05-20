@@ -115,11 +115,17 @@ unsigned int * SM3::fill(unsigned int * message, ULL length) // message 的长度  
 	{
 		fill_message[i] = message[i];
 	}
+	
+	if(bias != 0)
+	{
+		fill_message[now] &= (0xFFFFFFFF << (32 - bias));
+	}
+    
 	//now = length;
 	
 	unsigned int tmp = 128; // 1 << 7
 	
-	fill_message[now] += (tmp << current_bit);
+	fill_message[now] |= (tmp << current_bit);
 	current_bit -= 8;
 	if(current_bit < 0)
 	{
@@ -130,7 +136,7 @@ unsigned int * SM3::fill(unsigned int * message, ULL length) // message 的长度  
 	tmp = 0;
 	for(int i = 0; i < k / 8 - 1; ++i)
 	{
-		fill_message[now] += (tmp << current_bit);
+		fill_message[now] |= (tmp << current_bit);
 		current_bit -= 8;
 		if(current_bit < 0)
 		{
@@ -168,7 +174,7 @@ unsigned int * SM3::fill(unsigned char *message) // 填充
 	
 	for(ULL i = 0; i < length; ++i)
 	{
-		fill_message[now] += (message[i] << current_bit);
+		fill_message[now] |= (message[i] << current_bit);
 		current_bit -= 8;
 		if(current_bit < 0)
 		{
@@ -179,7 +185,7 @@ unsigned int * SM3::fill(unsigned char *message) // 填充
 	
 	unsigned int tmp = 128; // 1 << 7
 	
-	fill_message[now] += (tmp << current_bit);
+	fill_message[now] |= (tmp << current_bit);
 	current_bit -= 8;
 	if(current_bit < 0)
 	{
@@ -190,7 +196,7 @@ unsigned int * SM3::fill(unsigned char *message) // 填充
 	tmp = 0;
 	for(int i = 0; i < k / 8 - 1; ++i)
 	{
-		fill_message[now] += (tmp << current_bit);
+		fill_message[now] |= (tmp << current_bit);
 		current_bit -= 8;
 		if(current_bit < 0)
 		{
@@ -331,6 +337,8 @@ void SM3::calculate_sm3(unsigned char * message)
 		
 	iter(filled_message);
 	
+	
+	delete [] filled_message;
 //	print_hex(V, 8);	
 }
 
@@ -339,6 +347,8 @@ void SM3::calculate_sm3(unsigned int * message, ULL length)
 	unsigned int * filled_message = fill(message, length);
 		
 	iter(filled_message);
+	
+	delete [] filled_message;
 }
 
 void SM3::print_str(string &s)

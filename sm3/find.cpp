@@ -2,6 +2,7 @@
 #include"sm3.h"
 using namespace std;
 
+#define MAXN 1000000
 bool isequal(unsigned int * V1, unsigned int * V2, ULL len)
 {
 	ULL n = len / 32;
@@ -52,8 +53,11 @@ int main()
 		sm3_2.calculate_sm3(sm3_2.V, len);
 		
 		cnt ++;
-		if(cnt % 10000 == 0)
+		if(cnt % MAXN == 0)
+		{
+			
 			cout << cnt << endl;
+		}
 	}
 	
 	unsigned int tmp1[8];
@@ -78,8 +82,11 @@ int main()
 		sm3_2.calculate_sm3(sm3_2.V, len);
 		
 		cnt ++;
-		if(cnt % 10000 == 0)
+		if(cnt % MAXN == 0)
+		{
+			
 			cout << cnt << endl;
+		}
 	}
 	
 	

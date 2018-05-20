@@ -28,11 +28,6 @@ bool isequal(unsigned int * V1, unsigned int * V2, ULL len)
 }
 int main()
 {
-	unsigned int V1[10];
-	V1[0] = 1;
-	unsigned int V2[10];
-	V2[0] = 0;
-	
-	cout << isequal(V1, V2, 32) << endl;
+	cout << (0xFFFFFFFF << 31) ;
 	return 0;
 }
