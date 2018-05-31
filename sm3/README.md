@@ -18,7 +18,7 @@ END RESULT: 76001 (0.01MS) 即为0.76s
 对于60bit：   
 找到的碰撞为：（前60bit为输入，16进制）  
 d1c0a3ae 52536e5a 2cb9bfed ac8e14e7 be2113f7 65eb368c eda4ff37 a9bf0f5c  
-7e1868ac 1affa545 ccdb5bb2 e8f14f5a bc6d738e c8c91e70 6d022e53 22fad00b   
+7e1868ac 1affa545 ccdb5bb2 e8f14f5a bc6d738e c8c91e70 6d022e53 22fad00b    
 <br>
 得到的结果为：  
 0697c841 7ceaea6a 1a4a900d 17e72f9c f847476c 8fd297df a76dc7c8 133192fa  
