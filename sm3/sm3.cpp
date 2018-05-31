@@ -12,14 +12,14 @@ SM3::SM3()
 	for(int i = 0; i < 16; ++i) T[i] = 0x79cc4519;
 	for(int i = 16; i < 64; ++i) T[i] = 0x7a879d8a;
 }
-unsigned int SM3::rol(unsigned int X, int n)
+inline unsigned int SM3::rol(unsigned int X, int n)
 {
 	unsigned int res = X << n;
 	res |= (X >> (32 - n));
 	return res;
 }
 
-unsigned int SM3::FF(unsigned int X, unsigned int Y, unsigned int Z, int j)
+inline unsigned int SM3::FF(unsigned int X, unsigned int Y, unsigned int Z, int j)
 {
 	/*if(j >= 0 && j <= 15)
 	{
@@ -38,7 +38,7 @@ unsigned int SM3::FF(unsigned int X, unsigned int Y, unsigned int Z, int j)
 	return 0; // 有问题 
 }
 
-unsigned int SM3::GG(unsigned int X, unsigned int Y, unsigned int Z, int j)
+inline unsigned int SM3::GG(unsigned int X, unsigned int Y, unsigned int Z, int j)
 {
 	/*if(j >= 0 && j <= 15)
 	{
@@ -56,12 +56,12 @@ unsigned int SM3::GG(unsigned int X, unsigned int Y, unsigned int Z, int j)
 	return 0; // 有问题 
 }
 
-unsigned int SM3::P0(unsigned int X)
+inline unsigned int SM3::P0(unsigned int X)
 {
 	return (X ^ (rol(X, 9)) ^ (rol(X, 17)));
 }
 
-unsigned int SM3::P1(unsigned int X)
+inline unsigned int SM3::P1(unsigned int X)
 {
 	return (X ^ (rol(X, 15)) ^ (rol(X, 23)));
 }
@@ -208,52 +208,11 @@ unsigned int * SM3::fill(unsigned char *message) // 填充
 	fill_message[filled_len - 1] = (l & 0xFFFFFFFF);
 	fill_message[filled_len - 2] = ((l >> 32) & 0xFFFFFFFF);
 	
-	/*k = k / 8;     // K Byte 
-	unsigned char tmp = 128;
-	
-	//cout << (int)tmp << endl;
-	
-	str += tmp;
-	for(int i = 0; i < k - 1; ++i)
-	{
-		tmp = 0;
-		str += tmp; 
-	}
-	
-	unsigned char len[8];
-	
-	for(int i = 7; i >= 0; i --)
-	{
-		len[i] = l % 256;
-		l = l >> 8;
-	}
-	
-	for(int i = 0; i < 8; ++i) str += len[i];
-	
-	
-	//
-	filled_len = str.length() / 4;
-	
-	unsigned int* fill_message = new unsigned int[filled_len];
-	
-	
-	for(ULL i = 0, j = 3; i < filled_len; i++, j+=4)
-	{
-		fill_message[i] = (((unsigned char)str[j]) | (((unsigned char)str[j - 1]) << 8) | (((unsigned char)str[j - 2]) << 16) | (((unsigned char)str[j - 3]) << 24));
-	} 
-	
-	cout << str[3] << endl; 
-	cout << ((int)str[3]) << " " << (((unsigned int)str[2]) << 8) << endl;
-//	cout << fill_message[]
-	//return str; */
-	
-	
-	
 	return fill_message;
 }
 
 
-void SM3::CF(unsigned int * V, unsigned int * message, ULL num)
+inline void SM3::CF(unsigned int * V, unsigned int * message, ULL num)
 {
 	 
 	for(int i = 0; i < 16; ++i)

@@ -2,13 +2,14 @@ CXX=g++
 CXXFLAGS= -O3
 TARGET=main
 
-SRC= sm3.cpp main.cpp
+SRC1= sm3.cpp main.cpp
+SRC2= sm3.cpp find.cpp
 
-all: $(TARGET)
+test: $(SRC1)
+	$(CXX) $(CXXFLAGS) $(SRC1) -o $@
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $@
-
+find: $(SRC2)
+	$(CXX) $(CXXFLAGS) $(SRC2) -o $@
 clean:
 	$(RM) *.o *.d $(TARGET)
 
