@@ -17,21 +17,21 @@ END RESULT: 76001 (0.01MS) 即为0.76s
 2. 对于寻找碰撞，我尝试寻找了60bit和64bit的碰撞，结果如下：  
 对于60bit：   
 找到的碰撞为：（前60bit为输入，16进制）  
-d1c0a3ae 52536e5a 2cb9bfed ac8e14e7 be2113f7 65eb368c eda4ff37 a9bf0f5c  
-7e1868ac 1affa545 ccdb5bb2 e8f14f5a bc6d738e c8c91e70 6d022e53 22fad00b   
+d1c0a3ae 52536e5a 2cb9bfed ac8e14e7 be2113f7 65eb368c eda4ff37 a9bf0f5c  <br>
+7e1868ac 1affa545 ccdb5bb2 e8f14f5a bc6d738e c8c91e70 6d022e53 22fad00b  <br>
 <br>
 得到的结果为：  
-0697c841 7ceaea6a 1a4a900d 17e72f9c f847476c 8fd297df a76dc7c8 133192fa  
-0697c841 7ceaea66 7a44acca 3b8d2423 c787f944 4f5daddb 77b31f1d 35f7916b  
+0697c841 7ceaea6a 1a4a900d 17e72f9c f847476c 8fd297df a76dc7c8 133192fa  <br>
+0697c841 7ceaea66 7a44acca 3b8d2423 c787f944 4f5daddb 77b31f1d 35f7916b  <br>
 <br>
 对于64bit:  
 找到的碰撞为：（前64bit为输入，16进制）  
-ce768f42 af4f6dd9 21acd20d 5317b006 ec682e54 6a33c4ff 7adf5d99 0e252ec6  
-23c83b83 a7cf110e 5c0eecd1 7d796bf6 2cd35a58 13c2943c 8bc73d4e 092919d4   
+ce768f42 af4f6dd9 21acd20d 5317b006 ec682e54 6a33c4ff 7adf5d99 0e252ec6  <br>
+23c83b83 a7cf110e 5c0eecd1 7d796bf6 2cd35a58 13c2943c 8bc73d4e 092919d4  <br>
 <br>
 得到的结果为：  
-1e290904 1d6bddca ef1743d3 e0a414fd 0891fb06 c7fc1e2c a7b2f990 48e3fbc9  
-1e290904 1d6bddca 4136e2ec c2a691b9 d3c0397e a4cbdf2d e4156980 33169ef8  
+1e290904 1d6bddca ef1743d3 e0a414fd 0891fb06 c7fc1e2c a7b2f990 48e3fbc9  <br>
+1e290904 1d6bddca 4136e2ec c2a691b9 d3c0397e a4cbdf2d e4156980 33169ef8  <br>
 
 
 
