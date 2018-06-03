@@ -7,9 +7,20 @@ int a[14] = {0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1};
 int ans[15][15];
 int l[15];
 
+void show(int n, int l)
+{
+	cout << 1;
+	for(int i = 1; i < l; ++i)
+	{
+		if(ans[n][i] != 0)
+		cout << " + " << "x^" << i;
+	}
+	cout << endl;
+ } 
 void BM()
 {
-	cout << "step 0: " << ans[0][0] << endl;
+	cout << "step 0: ";// << ans[0][0] << endl;
+	show(0, l[0]);
 	cout << "l = " << l[0] << endl;
 	
 	
@@ -72,8 +83,9 @@ void BM()
 		}
 		
 		
-		for(int j = 0; j <= l[i + 1]; ++j) cout << ans[i + 1][j] << " "; 
-		cout << endl;
+		//for(int j = 0; j <= l[i + 1]; ++j) cout << ans[i + 1][j] << " "; 
+		//cout << endl;
+		show(i + 1, l[i + 1]);
 		cout << "l = " << l[i + 1]<< endl;
 	}
 }
