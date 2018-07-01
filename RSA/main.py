@@ -2,11 +2,14 @@ import random
 from func import *
 import time
 
+num = 512
 
-'''
-https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf
-'''
+with open("data.txt", "w") as f:
+    for i in range(0, 100):
+        n = get_random_num(num)
 
-
-num = 1024  # 生成1024bit的随机数
-
+        f.write(str(n) + " ")
+        if is_prime(n, num):
+            f.write("是素数\n")
+        else:
+            f.write("不是素数\n")
